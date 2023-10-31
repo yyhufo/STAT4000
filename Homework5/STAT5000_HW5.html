@@ -7615,21 +7615,17 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>To compute the standard deviation:</p>
-<p>$$
-\text{sd}[4X + 2Y + 2] = |4| \cdot \text{sd}[X] + |2| \cdot \text{sd}[Y]
+<p>To compute the standard deviation:
+$$
+sd[4X+2Y+2] = (\text{Var}[4X+2Y+2])^{0.5} = (\text{Var}[4X+2Y])^{0.5}
 $$</p>
-<p>Given:</p>
-<p>$$\text{sd}[X] = 2.5$$
-$$\text{sd}[Y] = 2$$</p>
-<p>Plugging in the values:</p>
-<p>$$
-\text{sd}[4X + 2Y + 2] = 4 \cdot 2.5 + 2 \cdot 2
-$$</p>
-<p>$$
-\text{sd}[4X + 2Y + 2] = 10 + 4 = 14
-$$</p>
-<p>So, $$\text{sd}[4X + 2Y + 2] = 14$$.</p>
+<p>To find $\text{Var}[aX+bY]$, use $a^2\text{Var}[X]+b^2\text{Var}[Y]+2ab\text{Cov}[X,Y]$</p>
+<p>$a = 4$ and $b = 2$</p>
+<p>$$\text{Var}[X] = 2.5^2 = 6.25$$
+$$\text{Var}[Y] = 2^2 = 4$$</p>
+<p>$$\text{Cov}[X,Y] = \text{Corr}[X,Y] * sd[X] *sd[Y] = 4 $$</p>
+<p>plugging everything in,</p>
+<p>$$(\text{Var}[4X+2Y])^{0.5} = \sqrt{4^2*6.25+2^2*4+2*4*2*4} = 13.75$$</p>
 </div>
 </div>
 </div>
@@ -7651,24 +7647,10 @@ $$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>To compute the expected value anbd using the shortcut formula for variance:</p>
-<p>$$
-E[3X^2 + Y] = \text{Var}(3X^2 + Y) + \left(E[3X^2 + Y]\right)^2
-$$</p>
-<p>Calculate expected value:</p>
-<p>$$
-E[3X^2 + Y] = E[3X^2] + E[Y]
-$$</p>
-<p>Given:</p>
-<p>$$E[X] = 5$$
-$$E[Y] = 8$$
-$$\text{Var}(X) = \text{sd}(X)^2 = (2.5)^2 = 6.25$$
-$$\text{Var}(Y) = \text{sd}(Y)^2 = (2)^2 = 4$$
-$$\text{Corr}(X, Y) = 0.8$$</p>
-<p>Now, pluging values in:</p>
-<p>$$E[X^2] = \text{Var}(X) + (E[X])^2 = 6.25 + (5)^2 = 31.25$$
-$$E[3X^2] = 3 \cdot E[X^2] = 3 \cdot 31.25 = 93.75$$
-$$E[3X^2 + Y] = 3E[X^2] + E[Y] = 3 \cdot 93.75 + 8 = 281.25 + 8 = 289.25$$</p>
+<p>$$E[X^2] = \text{Var}(X) + (E[X])^2 $$</p>
+<p>We also know that $Var[X] = 6.25$</p>
+<p>$$E[X^2] = \text{Var}(X) + (E[X])^2 = 6.25 + 5^2 = 31.25$$</p>
+<p>$$E[3X^2 + Y] = 31.25*3 + 8 = 101.75$$</p>
 </div>
 </div>
 </div>
@@ -7690,19 +7672,10 @@ $$E[3X^2 + Y] = 3E[X^2] + E[Y] = 3 \cdot 93.75 + 8 = 281.25 + 8 = 289.25$$</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>To find $$E[XY]$$</p>
-<p>$$
-\text{Corr}(X, Y) = \frac{\text{Cov}(X, Y)}{sd[X] \cdot sd[Y]}
-$$</p>
-<p>Calculate $$\text{Cov}(X, Y)$$ using the correlation coefficient and standard deviations</p>
-<p>$$
-\text{Cov}(X, Y) = \text{Corr}(X, Y) \cdot sd[X] \cdot sd[Y] = 0.8 \cdot 2.5 \cdot 2 = 4
-$$</p>
-<p>Calculate $$E[XY]$$</p>
-<p>$$
-E[XY] = \frac{\text{Cov}(X, Y)}{8} = \frac{4}{8} = 0.5
-$$</p>
-<p>So, $$E[8XY] = 8 \cdot E[XY] = 8 \cdot 0.5 = 4$$</p>
+<p>$$E[XY] = \text{Cov}[X, Y] + E[X]*E[Y]$$</p>
+<p>Since Cov = 4,</p>
+<p>$$E[XY] = 4 + 5*8 = 44$$</p>
+<p>$$E[8XY] = 8*44 = 352$$</p>
 </div>
 </div>
 </div>
